@@ -27,7 +27,7 @@ public class Database {
                 String[] firstSplit = line.split(":"); //name / types
                 if (firstSplit.length == 1) {
                     String name = line.trim();
-                    if (line.contains("ï")) {
+                    if (line.contains("¿")) {
                         name = name.substring(3);
                     }
                     typeList.add(name);
