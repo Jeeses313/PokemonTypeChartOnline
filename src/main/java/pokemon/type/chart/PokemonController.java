@@ -13,12 +13,16 @@ public class PokemonController {
     @Autowired
     private Database database;  
     
+//    @GetMapping("/")
+//    public String index(Model model) {
+//        return "redirect:/None/None";
+//    }
+    
     @GetMapping("/")
     public String index(Model model) {
-        return "redirect:/None/None";
+        setModelAttributes(model, "None", "None");
+        return "index";
     }
-    
-    
     
     @GetMapping("/{type1}/{type2}")
     public String showEffectiveness(Model model, @PathVariable String type1, @PathVariable String type2) {
@@ -32,27 +36,38 @@ public class PokemonController {
         return "index";
     }
     
+//    @GetMapping("/{pokemon}")
+//    public String showPokemon(Model model, @PathVariable String pokemon) {
+//        if(!database.checkPokemon(pokemon)) {
+//            return "redirect:/None/None";
+//        }
+//        Pair types = database.getPokemonTypes(pokemon);
+//        return "redirect:/" + pokemon + "/" + types.getKey() + "/" + types.getValue();
+//    }
+    
     @GetMapping("/{pokemon}")
     public String showPokemon(Model model, @PathVariable String pokemon) {
         if(!database.checkPokemon(pokemon)) {
             return "redirect:/None/None";
         }
         Pair types = database.getPokemonTypes(pokemon);
-        return "redirect:/" + pokemon + "/" + types.getKey() + "/" + types.getValue();
-    }
-    
-    @GetMapping("/{pokemon}/{type1}/{type2}")
-    public String showPokemonEffectiveness(Model model, @PathVariable String pokemon, @PathVariable String type1, @PathVariable String type2) {
-        if(!database.checkPokemon(pokemon)) {
-            return "redirect:/None/None";
-        }
-        if(!database.checkType(type1) || !database.checkType(type2)) {
-            return "redirect:/" + pokemon;
-        }
-        setModelAttributes(model, type1, type2);
+        setModelAttributes(model, types.getKey(), types.getValue());
         model.addAttribute("selectedPokemon", pokemon);
         return "index";
     }
+    
+//    @GetMapping("/{pokemon}/{type1}/{type2}")
+//    public String showPokemonEffectiveness(Model model, @PathVariable String pokemon, @PathVariable String type1, @PathVariable String type2) {
+//        if(!database.checkPokemon(pokemon)) {
+//            return "redirect:/None/None";
+//        }
+//        if(!database.checkType(type1) || !database.checkType(type2)) {
+//            return "redirect:/" + pokemon;
+//        }
+//        setModelAttributes(model, type1, type2);
+//        model.addAttribute("selectedPokemon", pokemon);
+//        return "index";
+//    }
     
     @GetMapping("**")
     public String error(Model model) {
