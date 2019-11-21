@@ -8,15 +8,13 @@ public class Pokemon {
     private String type2;
     private Pair types;
 
-    public Pokemon(String name, int number, String type1, String type2) {
+    public Pokemon(String name, int number, String giventype1, String type2) {
         this.name = name;
         this.number = number;
-        this.type1 = type1;
+        this.type1 = giventype1;
         this.type2 = type2;
-        if(type2 == null) {
-            this.type2 = "None";
-        }
-        types = new Pair(type1, type2);
+        types = new Pair(giventype1, type2);
+
     }
     
     public Pair getType() {

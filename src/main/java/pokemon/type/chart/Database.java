@@ -27,8 +27,8 @@ public class Database {
                 String[] firstSplit = line.split(":"); //name / types
                 if (firstSplit.length == 1) {
                     String name = line.trim();
-                    if (line.contains("¿")) {
-                        name = name.substring(3);
+                    if (line.contains("None")) {
+                        name = "None";
                     }
                     typeList.add(name);
                     typeMap.put(name, new Type(line, new String[0], new String[0], new String[0]));
@@ -57,7 +57,7 @@ public class Database {
                 pokemonList.add(name);
                 int num = Integer.parseInt(split[1].trim().substring(1));
                 if(split.length == 3) {
-                    pokemonMap.put(name, new Pokemon(name, num, split[2], null));
+                    pokemonMap.put(name, new Pokemon(name, num, split[2], "None"));
                 } else {
                     pokemonMap.put(name, new Pokemon(name, num, split[2], split[3]));
                 }
@@ -70,8 +70,7 @@ public class Database {
             for (String type2: typeList) {
                 this.effectivenessMap.put(type1 + "-" + type2, initTypeEffectivenesses(type1, type2));
             }
-        }
-        
+        }       
     }
 
     private ArrayList<ArrayList<String>> initTypeEffectivenesses(String type1, String type2) {
@@ -84,7 +83,7 @@ public class Database {
         ArrayList<String> inneffective = new ArrayList<>();
         if (type1.equals(type2)) {
             for (String attackType : typeList) {
-                int againstType1 = typeMap.getOrDefault(type1, new Type("None", new String[0], new String[0], new String[0])).getEfftectiveness(attackType);
+                int againstType1 = typeMap.getOrDefault(type1, typeMap.get("None")).getEfftectiveness(attackType);
                 if (againstType1 == -2) {
                     inneffective.add(attackType);
                 } else if (againstType1 == 1) {
@@ -97,8 +96,8 @@ public class Database {
             }
         } else {
             for (String attackType : typeList) {
-                int againstType1 = typeMap.getOrDefault(type1, new Type("None", new String[0], new String[0], new String[0])).getEfftectiveness(attackType);
-                int againstType2 = typeMap.getOrDefault(type2, new Type("None", new String[0], new String[0], new String[0])).getEfftectiveness(attackType);
+                int againstType1 = typeMap.getOrDefault(type1, typeMap.get("None")).getEfftectiveness(attackType);
+                int againstType2 = typeMap.getOrDefault(type2, typeMap.get("None")).getEfftectiveness(attackType);
                 if (againstType1 == -2 || againstType2 == -2) {
                     inneffective.add(attackType);
                 } else if (againstType1 == 1 && againstType2 == 1) {
