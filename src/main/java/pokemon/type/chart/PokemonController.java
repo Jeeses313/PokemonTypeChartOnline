@@ -2,7 +2,6 @@
 package pokemon.type.chart;
 
 import java.util.ArrayList;
-import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +37,7 @@ public class PokemonController {
         if(!database.checkPokemon(pokemon)) {
             return "redirect:/None/None";
         }
-        Pair<String,String> types = database.getPokemonTypes(pokemon);
+        Pair types = database.getPokemonTypes(pokemon);
         return "redirect:/" + pokemon + "/" + types.getKey() + "/" + types.getValue();
     }
     

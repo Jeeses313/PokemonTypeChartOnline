@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import javafx.util.Pair;
 import org.springframework.stereotype.Component;
 @Component
 public class Database {
@@ -132,10 +131,10 @@ public class Database {
         return typeList;
     }
     
-    public Pair<String,String> getPokemonTypes(String name) {
+    public Pair getPokemonTypes(String name) {
         Pokemon pokemon = pokemonMap.getOrDefault(name, null);
         if(pokemon == null) {
-            return new Pair<String, String>("None", "None");
+            return new Pair("None", "None");
         }
         return pokemon.getType();
     }
