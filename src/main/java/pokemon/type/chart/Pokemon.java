@@ -13,6 +13,9 @@ public class Pokemon {
         this.number = number;
         this.type1 = type1;
         this.type2 = type2;
+        if(type2 == null) {
+            this.type2 = "None";
+        }
         types = new Pair(type1, type2);
     }
     

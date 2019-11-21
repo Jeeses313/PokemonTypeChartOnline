@@ -57,7 +57,7 @@ public class Database {
                 pokemonList.add(name);
                 int num = Integer.parseInt(split[1].trim().substring(1));
                 if(split.length == 3) {
-                    pokemonMap.put(name, new Pokemon(name, num, split[2], "None"));
+                    pokemonMap.put(name, new Pokemon(name, num, split[2], null));
                 } else {
                     pokemonMap.put(name, new Pokemon(name, num, split[2], split[3]));
                 }
