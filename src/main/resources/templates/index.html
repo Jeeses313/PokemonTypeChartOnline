@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <title>Pokemon Type Chart Online</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         <table>
@@ -30,7 +33,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <select name="pokemonList" size="10" style="width:150px" onChange="window.location.href = '/' + this.value">
+                        <select id="pokemonList" name="pokemonList" size="10" style="width:150px" onChange="window.location.href = '/' + this.value">
                             <option th:each="pokemon : ${pokemons}" th:value="${pokemon}" th:text="${pokemon}" th:selected="${pokemon==selectedPokemon}"></option>               
                         </select>
                     </td>
@@ -92,7 +95,22 @@
                         </span>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <input class="form-control" id="myInput" type="text" placeholder="Search Pokemon..." style="width: 150px">
+                    </td>
+                </tr>
             </tbody>
         </table>
+        <script>
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#pokemonList *").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
