@@ -1,4 +1,4 @@
-Bulbasaur, #001,Grass,Poison
+﻿Bulbasaur, #001,Grass,Poison
 Ivysaur, #002,Grass,Poison
 Venusaur, #003,Grass,Poison
 Charmander, #004,Fire,
@@ -17,15 +17,20 @@ Pidgey, #016,Normal,Flying
 Pidgeotto, #017,Normal,Flying
 Pidgeot, #018,Normal,Flying
 Rattata, #019,Normal,
+Rattata Alola, #019,Dark,Normal
 Raticate, #020,Normal,
+Raticate Alola, #020,Dark,Normal
 Spearow, #021,Normal,Flying
 Fearow, #022,Normal,Flying
 Ekans, #023,Poison,
 Arbok, #024,Poison,
 Pikachu, #025,Electric,
 Raichu, #026,Electric,
+Raichu Alola, #026,Electric,Psychic
 Sandshrew, #027,Ground,
+Sandshrew, #027,Ice,Steel
 Sandslash, #028,Ground,
+Sandslash, #028,Ice,Steel
 NidoranF, #029,Poison,
 Nidorina, #030,Poison,
 Nidoqueen, #031,Poison,Ground
@@ -33,11 +38,17 @@ NidoranM, #032,Poison,
 Nidorino, #033,Poison,
 Nidoking, #034,Poison,Ground
 Clefairy, #035,Fairy,
+Clefairy (gen - 5), #035,Normal,
 Clefable, #036,Fairy,
+Clefable (gen - 5), #036,Normal
 Vulpix, #037,Fire,
+Vulpix Alola, #037,Ice,
 Ninetales, #038,Fire,
+Ninetales Alola, #038,Ice,Fairy
 Jigglypuff, #039,Normal,Fairy
+Jigglypuff (gen - 5), #039,Normal,
 Wigglytuff, #040,Normal,Fairy
+Wigglytuff (gen - 5), #040,Normal,
 Zubat, #041,Poison,Flying
 Golbat, #042,Poison,Flying
 Oddish, #043,Grass,Poison
@@ -48,9 +59,14 @@ Parasect, #047,Bug,Grass
 Venonat, #048,Bug,Poison
 Venomoth, #049,Bug,Poison
 Diglett, #050,Ground,
+Diglett Alola, #050,Ground,Steel
 Dugtrio, #051,Ground,
+Dugtrio Alola, #051,Ground,Steel
 Meowth, #052,Normal,
+Meowth Alola, #052,Dark,
+Meowth Galar, #052,Steel,
 Persian, #053,Normal,
+Persian Alola, #053,Dark,
 Psyduck, #054,Water,
 Golduck, #055,Water,
 Mankey, #056,Fighting,
@@ -72,21 +88,29 @@ Victreebel, #071,Grass,Poison
 Tentacool, #072,Water,Poison
 Tentacruel, #073,Water,Poison
 Geodude, #074,Rock,Ground
+Geodude Alola, #074,Rock,Electric
 Graveler, #075,Rock,Ground
+Graveler Alola, #075,Rock,Electric
 Golem, #076,Rock,Ground
+Golem Alola, #076,Rock,Electric
 Ponyta, #077,Fire,
+Ponyta Galar, #077,Psychic,
 Rapidash, #078,Fire,
+Rapidash Galar, #078,Psychic,Fairy
 Slowpoke, #079,Water,Psychic
 Slowbro, #080,Water,Psychic
 Magnemite, #081,Electric,Steel
 Magneton, #082,Electric,Steel
 Farfetch'd, #083,Normal,Flying
+Farfetch’d Galar, #083,Fighting,
 Doduo, #084,Normal,Flying
 Dodrio, #085,Normal,Flying
 Seel, #086,Water,
 Dewgong, #087,Water,Ice
 Grimer, #088,Poison,
+Grimer Alola, #088,Poison,Dark
 Muk, #089,Poison,
+Muk Alola, #089,Poison,Dark
 Shellder, #090,Water,
 Cloyster, #091,Water,Ice
 Gastly, #092,Ghost,Poison
@@ -101,13 +125,16 @@ Voltorb, #100,Electric,
 Electrode, #101,Electric,
 Exeggcute, #102,Grass,Psychic
 Exeggutor, #103,Grass,Psychic
+Exeggutor Alola, #103,Grass,Dragon
 Cubone, #104,Ground,
 Marowak, #105,Ground,
+Marowak Alola, #105,Fire,Ghost
 Hitmonlee, #106,Fighting,
 Hitmonchan, #107,Fighting,
 Lickitung, #108,Normal,
 Koffing, #109,Poison,
 Weezing, #110,Poison,
+Weezing Galar, #110,Poison,Fairy
 Rhyhorn, #111,Ground,Rock
 Rhydon, #112,Ground,Rock
 Chansey, #113,Normal,
@@ -120,6 +147,8 @@ Seaking, #119,Water,
 Staryu, #120,Water,
 Starmie, #121,Water,Psychic
 Mr. Mime, #122,Psychic,Fairy
+Mr. Mime (gen - 5), #122,Psychic,
+Mr. Mime Galar, #122,Ice,Psychic
 Scyther, #123,Bug,Flying
 Jynx, #124,Ice,Psychic
 Electabuzz, #125,Electric,
@@ -171,9 +200,13 @@ Chinchou, #170,Water,Electric
 Lanturn, #171,Water,Electric
 Pichu, #172,Electric,
 Cleffa, #173,Fairy,
+Cleffa (gen - 5), #173,Normal,
 Igglybuff, #174,Normal,Fairy
+Igglybuff (gen - 5), #174,Normal,
 Togepi, #175,Fairy,
+Togepi (gen - 5), #175,Normal,
 Togetic, #176,Fairy,Flying
+Togetic (gen - 5), #176,Normal,Flying
 Natu, #177,Psychic,Flying
 Xatu, #178,Psychic,Flying
 Mareep, #179,Electric,
@@ -181,7 +214,9 @@ Flaaffy, #180,Electric,
 Ampharos, #181,Electric,
 Bellossom, #182,Grass,
 Marill, #183,Water,Fairy
+Marill (gen - 5), #183,Water,
 Azumarill, #184,Water,Fairy
+Azumarill (gen - 5), #184,Water,
 Sudowoodo, #185,Rock,
 Politoed, #186,Water,
 Hoppip, #187,Grass,Flying
@@ -207,7 +242,9 @@ Dunsparce, #206,Normal,
 Gligar, #207,Ground,Flying
 Steelix, #208,Steel,Ground
 Snubbull, #209,Fairy,
+Snubbull (gen - 5), #209,Normal,
 Granbull, #210,Fairy,
+Granbull (gen - 5), #210,Normal,
 Qwilfish, #211,Water,Poison
 Scizor, #212,Bug,Steel
 Shuckle, #213,Bug,Rock
@@ -220,6 +257,7 @@ Magcargo, #219,Fire,Rock
 Swinub, #220,Ice,Ground
 Piloswine, #221,Ice,Ground
 Corsola, #222,Water,Rock
+Corsola Galar, #222,Ghost,
 Remoraid, #223,Water,
 Octillery, #224,Water,
 Delibird, #225,Ice,Flying
@@ -261,7 +299,9 @@ Swampert, #260,Water,Ground
 Poochyena, #261,Dark,
 Mightyena, #262,Dark,
 Zigzagoon, #263,Normal,
+Zigzagoon Galar, #263,Dark,Normal
 Linoone, #264,Normal,
+Linoone Galar, #263,Dark,Normal
 Wurmple, #265,Bug,
 Silcoon, #266,Bug,
 Beautifly, #267,Bug,Flying
@@ -278,8 +318,11 @@ Swellow, #277,Normal,Flying
 Wingull, #278,Water,Flying
 Pelipper, #279,Water,Flying
 Ralts, #280,Psychic,Fairy
+Ralts (gen - 5), #280,Psychic,
 Kirlia, #281,Psychic,Fairy
+Kirlia (gen - 5), #281,Psychic,
 Gardevoir, #282,Psychic,Fairy
+Gardevoir (gen - 5), #282,Psychic,
 Surskit, #283,Bug,Water
 Masquerain, #284,Bug,Flying
 Shroomish, #285,Grass,
@@ -296,11 +339,13 @@ Exploud, #295,Normal,
 Makuhita, #296,Fighting,
 Hariyama, #297,Fighting,
 Azurill, #298,Normal,Fairy
+Azurill (gen - 5), #298,Normal,
 Nosepass, #299,Rock,
 Skitty, #300,Normal,
 Delcatty, #301,Normal,
 Sableye, #302,Dark,Ghost
 Mawile, #303,Steel,Fairy
+Mawile (gen - 5), #303,Steel,
 Aron, #304,Steel,Rock
 Lairon, #305,Steel,Rock
 Aggron, #306,Steel,Rock
@@ -437,6 +482,7 @@ Bronzor, #436,Steel,Psychic
 Bronzong, #437,Steel,Psychic
 Bonsly, #438,Rock,
 Mime Jr., #439,Psychic,Fairy
+Mime Jr. (gen - 5), #439,Psychic,
 Happiny, #440,Normal,
 Chatot, #441,Normal,Flying
 Spiritomb, #442,Ghost,Dark
@@ -466,6 +512,7 @@ Tangrowth, #465,Grass,
 Electivire, #466,Electric,
 Magmortar, #467,Fire,
 Togekiss, #468,Fairy,Flying
+Togekiss (gen - 5), #468,Normal,Flying
 Yanmega, #469,Bug,Flying
 Leafeon, #470,Grass,
 Glaceon, #471,Ice,
@@ -545,6 +592,7 @@ Whirlipede, #544,Bug,Poison
 Scolipede, #545,Bug,Poison
 Cottonee, #546,Grass,
 Whimsicott, #547,Grass,Fairy
+Whimsicott (gen - 5), #547,Grass,
 Petilil, #548,Grass,
 Lilligant, #549,Grass,
 Basculin, #550,Water,
@@ -552,7 +600,11 @@ Sandile, #551,Ground,Dark
 Krokorok, #552,Ground,Dark
 Krookodile, #553,Ground,Dark
 Darumaka, #554,Fire,
+Darumaka Galar, #554,Ice,
 Darmanitan, #555,Fire,
+DarmanitanZ, #555,Fire,Psychic
+Darmanitan Galar, #555,Ice,
+DarmanitanZ Galar, #555,Ice,Fire
 Maractus, #556,Grass,
 Dwebble, #557,Bug,Rock
 Crustle, #558,Bug,Rock
@@ -560,6 +612,7 @@ Scraggy, #559,Dark,Fighting
 Scrafty, #560,Dark,Fighting
 Sigilyph, #561,Psychic,Flying
 Yamask, #562,Ghost,
+Yamask Galar, #562,Ground,Ghost
 Cofagrigus, #563,Ghost,
 Tirtouga, #564,Water,Rock
 Carracosta, #565,Water,Rock
@@ -616,6 +669,7 @@ Cryogonal, #615,Ice,
 Shelmet, #616,Bug,
 Accelgor, #617,Bug,
 Stunfisk, #618,Ground,Electric
+Stunfisk Galar, #618,Ground,Steel
 Mienfoo, #619,Fighting,
 Mienshao, #620,Fighting,
 Druddigon, #621,Dragon,
@@ -716,3 +770,183 @@ Noivern, #715,Flying,Dragon
 Xerneas, #716,Fairy,
 Yveltal, #717,Dark,Flying
 Zygarde, #718,Dragon,Ground
+Diancie, #719,Rock,Fairy
+HoopaC, #720,Psychic,Ghost
+HoopaU, #720,Psychic,Dark
+Volcanion, #721,Fire,Water
+Rowlet, #722,Grass,Flying
+Dartrix, #723,Grass,Flying
+Decidueye, #724,Grass,Ghost
+Litten, #725,Fire,
+Torracat, #726,Fire,
+Incineroar, #727,Fire,Dark
+Popplio, #728,Water,
+Brionne, #729,Water,
+Primarina, #730,Water,Fairy
+Pikipek, #731,Normal,Flying
+Trumbeak, #732,Normal,Flying
+Toucannon, #733,Normal,Flying
+Yungoos, #734,Normal,
+Gumshoos, #735,Normal,
+Grubbin, #736,Bug,
+Charjabug, #737,Bug,Electric
+Vikavolt, #738,Bug,Electric
+Crabrawler, #739,Fighting,
+Crabominable, #740,Fighting,Ice
+Oricorio Baile, #741,Fire,Flying
+Oricorio Pom-pom, #741,Electric,Flying
+Oricorio Pa’u, #741,Psychic,Flying
+Oricorio Sensu, #741,Ghost,Flying
+Cutiefly, #742,Bug,Fairy
+Ribombee, #743,Bug,Fairy
+Rockruff, #744,Rock,
+Lycanroc, #745,Rock,
+Wishiwashi, #746,Water,
+Mareanie, #747,Poison,Water
+Toxapex, #748,Poison,Water
+Mudbray, #749,Ground,
+Mudsdale, #750,Ground,
+Dewpider, #751,Water,Bug
+Araquanid, #752,Water,Bug
+Fomantis, #753,Grass,
+Lurantis, #754,Grass,
+Morelull, #755,Grass,Fairy
+Shiinotic, #756,Grass,Fairy
+Salandit, #757,Poison,Fire
+Salazzle, #758,Poison,Fire
+Stufful, #759,Normal,Fighting
+Bewear, #760,Normal,Fighting
+Bounsweet, #761,Grass,
+Steenee, #762,Grass,
+Tsareena, #763,Grass,
+Comfey, #764,Fairy,
+Oranguru, #765,Normal,Psychic
+Passimian, #766,Fighting,
+Wimpod, #767,Bug,Water
+Golisopod, #768,Bug,Water
+Sandygast, #769,Ghost,Ground
+Palossand, #770,Ghost,Ground
+Pyukumuku, #771,Water,
+Type: Null, #772,Normal,
+Silvally, #773,Normal,
+Minior, #774,Rock,Flying
+Komala, #775,Normal,
+Turtonator, #776,Fire,Dragon
+Togedemaru, #777,Electric,Steel
+Mimikyu, #778,Ghost,Fairy
+Bruxish, #779,Water,Psychic
+Drampa, #780,Normal,Dragon
+Dhelmise, #781,Ghost,Grass
+Jangmo-o, #782,Dragon,
+Hakamo-o, #783,Dragon,Fighting
+Kommo-o, #784,Dragon,Fighting
+Tapu Koko, #785,Electric,Fairy
+Tapu Lele, #786,Psychic,Fairy
+Tapu Bulu, #787,Grass,Fairy
+Tapu Fini, #788,Water,Fairy
+Cosmog, #789,Psychic,
+Cosmoem, #790,Psychic,
+Solgaleo, #791,Psychic,Steel
+Lunala, #792,Psychic,Ghost
+Nihilego, #793,Rock,Poison
+Buzzwole, #794,Bug,Fighting
+Phermosa, #795,Bug,Fighting
+Xurkitree, #796,Electric,
+Celesteela, #797,Steel,Flying,
+Kartana, #798,Grass,Steel
+Guzzlord, #799,Dark,Dragon
+Necrozma, #800,Psychic,
+NecrozmaDM, #800,Psychic,Steel
+NecrozmaDW, #800,Psychic,Ghost
+Magearna, #801,Steel,Fairy
+Marshadow, #802,Fighting,Ghost
+Poipole, #803,Poison,
+Naganadel, #804,Poison,Dragon
+Stakataka, #805,Rock,Steel
+Blacephalon, #806,Fire,Ghost
+Zeraora, #807,Electric,
+Meltan, #808,Steel,
+Melmetal, #809,Steel,
+Grookey, #810,Grass,
+Thwackey, #811,Grass,
+Rillaboom, #812,Grass,
+Scorbunny, #813,Fire,
+Raboot, #814,Fire,
+Cinderace, #815,Fire,
+Sobble, #816,Water,
+Drizzile, #817,Water,
+Inteleon, #818,Water,
+Skwovet, #819,Normal,
+Greedent, #820,Normal,
+Rookidee, #821,Flying,
+Corvisquire, #822,Flying,
+Corviknight, #823,Flying,Steel
+Blipbug, #824,Bug,
+Dottler, #825,Bug,Psychic
+Orbeetle, #826,Bug,Psychic
+Nickit, #827,Dark,
+Thievul, #828,Dark,
+Gossifleur, #829,Grass,
+Eldegoss, #830,Grass,
+Wooloo, #831,Normal,
+Dubwool, #832,Normal,
+Chewtle, #833,Water,
+Drednaw, #834,Water,Rock
+Yamper, #835,Electric,
+Boltund, #836,Electric,
+Rolycoly, #837,Rock,
+Carkol, #838,Rock,Fire
+Coalossal, #839,Rock,Fire
+Applin, #840,Grass,Dragon
+Flapple, #841,Grass,Dragon
+Appletun, #842,Grass,Dragon
+Silicobra, #843,Ground,
+Sandaconda, #844,Ground,
+Cramorant, #845,Flying,Water
+Arrokuda, #846,Water,
+Barraskewda, #847,Water,
+Toxel, #848,Electric,Poison
+Toxtricity, #849,Electric,Poison
+Sizzlipede, #850,Fire,Bug
+Centiskorch, #851,Fire,Bug
+Clobbopus, #852,Fighting,
+Grapploct, #853,Fighting,
+Sinistea, #854,Ghost,
+Polteageist, #855,Ghost,
+Hatenna, #856,Psychic,
+Hattrem, #857,Psychic,
+Hatterene, #858,Psychic,Fairy
+Impidimp, #859,Dark,Fairy
+Morgrem, #860,Dark,Fairy
+Grimmsnarl, #861,Dark,Fairy
+Obstagoon, #862,Dark,Normal
+Perrserker, #863,Steel,
+Cursola, #864,Ghost,
+Sirfetch’d, #865,Fighting,
+Mr. Rime, #866,Ice,Psychic
+Runerigus, #867,Ground,Ghost
+Milcery, #868,Fairy,
+Alcremie, #869,Fairy,
+Falinks, #870,Fighting,
+Pincurchin, #871,Electric,
+Snom, #872,Ice,Bug
+Frosmoth, #873,Ice,Bug
+Stonjourner, #874,Rock,
+Eiscue, #875,Ice,
+Indeedee, #876,Psychic,Normal
+Morpeko, #877,Electric,Dark
+Cufant, #878,Steel,
+Copperajah, #879,Steel,
+Dracozolt, #880,Electric,Dragon
+Arctozolt, #881,Electric,Ice
+Dracovish, #882,Water,Dragon
+Arctovish, #883,Water,Ice
+Duraludon, #884,Steel,Dragon
+Dreepy, #885,Dragon,Ghost
+Drakloak, #886,Dragon,Ghost
+Dragapult, #887,Dragon,Ghost
+Zacian, #888,Fairy,
+ZacianCS, #888,Fairy,Steel
+Zamazenta, #889,Fighting,
+ZamazentaCS, #889,Fighting,Steel
+Eternatus, #890,Poison,Dragon
