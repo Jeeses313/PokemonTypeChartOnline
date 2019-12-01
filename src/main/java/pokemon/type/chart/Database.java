@@ -54,6 +54,9 @@ public class Database {
                 String line = pokemons.nextLine();
                 String[] split = line.split(",");
                 String name = split[0].trim();
+                if(name.contains("Bulbasaur")) {
+                    name = "Bulbasaur";
+                } 
                 pokemonList.add(name);
                 int num = Integer.parseInt(split[1].trim().substring(1));
                 if(split.length == 3) {
