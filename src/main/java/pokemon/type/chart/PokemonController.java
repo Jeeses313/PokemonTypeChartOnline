@@ -1,6 +1,7 @@
 package pokemon.type.chart;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,15 @@ public class PokemonController {
         setModelAttributes(model, "None", "None");
         return "index";
     }
-
+    
+    @GetMapping("/js")
+    public String indexjs(Model model) {
+        setModelAttributes(model, "None", "None");
+        return "indexjs";
+    }
+    
+    
+    
     @GetMapping("/{type1}/{type2}")
     public String showEffectiveness(Model model, @PathVariable String type1, @PathVariable String type2) {
 //        if(!database.checkType(type1)) {

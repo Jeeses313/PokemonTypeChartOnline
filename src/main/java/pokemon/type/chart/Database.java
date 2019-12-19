@@ -140,6 +140,10 @@ public class Database {
         }
         return pokemon.getType();
     }
+    
+    public Pokemon getPokemon(String name) {
+        return pokemonMap.getOrDefault(name, null);
+    }
 
     public ArrayList<String> getPokemonListNameOrder() {
         pokemonList.sort((pok1, pok2) -> pokemonMap.get(pok1).getName().compareTo(pokemonMap.get(pok2).getName()));
