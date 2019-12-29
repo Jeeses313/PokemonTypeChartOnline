@@ -1,8 +1,8 @@
 
-package pokemon.type.chart;
+package pokemon.type.chart.domain;
 
 
-class Pair {
+public class Pair {
     private String key;
     private String value;
 

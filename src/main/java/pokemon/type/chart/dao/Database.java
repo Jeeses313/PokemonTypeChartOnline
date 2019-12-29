@@ -1,5 +1,8 @@
-package pokemon.type.chart;
+package pokemon.type.chart.dao;
 
+import pokemon.type.chart.domain.Pokemon;
+import pokemon.type.chart.domain.Pair;
+import pokemon.type.chart.domain.Type;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
@@ -7,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import org.springframework.stereotype.Component;
+import pokemon.type.chart.PokemonTypeChartOnlineApplication;
+
 @Component
 public class Database {
 
@@ -15,12 +20,12 @@ public class Database {
     private ArrayList<String> pokemonList;
     private HashMap<String, Pokemon> pokemonMap;
     private HashMap<String, ArrayList<ArrayList<String>>> effectivenessMap;
-    
+
     public Database() {
         this.typeList = new ArrayList<>();
         this.typeMap = new HashMap<>();
         try {
-            Scanner types = new Scanner(new ResourceUtilities().resourceToString("typechart.txt"));
+            Scanner types = new Scanner(resourceToString("typechart.txt"));
 //      File: Type:Super1,Super2...;Weak1,Weak2...;Inneffective1,Ineffective2...  
             while (types.hasNextLine()) {
                 String line = types.nextLine();
@@ -48,18 +53,18 @@ public class Database {
         this.pokemonList = new ArrayList<>();
         this.pokemonMap = new HashMap<>();
         try {
-            Scanner pokemons = new Scanner(new ResourceUtilities().resourceToString("pokemonchart.txt"));
+            Scanner pokemons = new Scanner(resourceToString("pokemonchart.txt"));
 //            File: Name,Number,Type1,Type2
-            while(pokemons.hasNextLine()) {
+            while (pokemons.hasNextLine()) {
                 String line = pokemons.nextLine();
                 String[] split = line.split(",");
                 String name = split[0].trim();
-                if(name.contains("Bulbasaur")) {
+                if (name.contains("Bulbasaur")) {
                     name = "Bulbasaur";
-                } 
+                }
                 pokemonList.add(name);
                 int num = Integer.parseInt(split[1].trim().substring(1));
-                if(split.length == 3) {
+                if (split.length == 3) {
                     pokemonMap.put(name, new Pokemon(name, num, split[2], "None"));
                 } else {
                     pokemonMap.put(name, new Pokemon(name, num, split[2], split[3]));
@@ -69,11 +74,11 @@ public class Database {
         } catch (Exception e) {
         }
         effectivenessMap = new HashMap<>();
-        for (String type1: typeList) {
-            for (String type2: typeList) {
+        for (String type1 : typeList) {
+            for (String type2 : typeList) {
                 this.effectivenessMap.put(type1 + "-" + type2, initTypeEffectivenesses(type1, type2));
             }
-        }       
+        }
     }
 
     private ArrayList<ArrayList<String>> initTypeEffectivenesses(String type1, String type2) {
@@ -124,7 +129,7 @@ public class Database {
         typeEffectiveness.add(inneffective);
         return typeEffectiveness;
     }
-    
+
     public ArrayList<ArrayList<String>> getTypeEffectivenesses(String type1, String type2) {
         return effectivenessMap.get(type1 + "-" + type2);
     }
@@ -132,15 +137,15 @@ public class Database {
     public ArrayList<String> getTypeList() {
         return typeList;
     }
-    
+
     public Pair getPokemonTypes(String name) {
         Pokemon pokemon = pokemonMap.getOrDefault(name, null);
-        if(pokemon == null) {
+        if (pokemon == null) {
             return new Pair("None", "None");
         }
         return pokemon.getType();
     }
-    
+
     public Pokemon getPokemon(String name) {
         return pokemonMap.getOrDefault(name, null);
     }
@@ -149,52 +154,46 @@ public class Database {
         pokemonList.sort((pok1, pok2) -> pokemonMap.get(pok1).getName().compareTo(pokemonMap.get(pok2).getName()));
         return pokemonList;
     }
-    
+
     public ArrayList<String> getPokemonListNumberOrder() {
-        pokemonList.sort((pok1, pok2) -> pokemonMap.get(pok1).getNumber()- pokemonMap.get(pok2).getNumber());
+        pokemonList.sort((pok1, pok2) -> pokemonMap.get(pok1).getNumber() - pokemonMap.get(pok2).getNumber());
         return pokemonList;
     }
-    
+
     public ArrayList<String> getPokemonListNameReverseOrder() {
         pokemonList.sort((pok1, pok2) -> pokemonMap.get(pok2).getName().compareTo(pokemonMap.get(pok1).getName()));
         return pokemonList;
     }
-    
+
     public ArrayList<String> getPokemonListNumberReverseOrder() {
-        pokemonList.sort((pok1, pok2) -> pokemonMap.get(pok2).getNumber()- pokemonMap.get(pok1).getNumber());
+        pokemonList.sort((pok1, pok2) -> pokemonMap.get(pok2).getNumber() - pokemonMap.get(pok1).getNumber());
         return pokemonList;
     }
-    
-//From BullyWiiPlaza: https://stackoverflow.com/questions/6068197/utils-to-read-resource-text-file-to-string-java
 
-    public static class ResourceUtilities {
-
-        public static String resourceToString(String filePath) throws IOException, URISyntaxException {
-            try (InputStream inputStream = ResourceUtilities.class.getClassLoader().getResourceAsStream(filePath)) {
-                return inputStreamToString(inputStream);
-            }
-        }
-
-        private static String inputStreamToString(InputStream inputStream) {
-            try (Scanner scanner = new Scanner(inputStream).useDelimiter("\\A")) {
-                return scanner.hasNext() ? scanner.next() : "";
-            }
+    private static String resourceToString(String filePath) throws IOException, URISyntaxException {
+        try (InputStream inputStream = PokemonTypeChartOnlineApplication.class.getClassLoader().getResourceAsStream(filePath)) {
+            return inputStreamToString(inputStream);
         }
     }
 
-    public boolean checkType(String type) {
-        if(typeMap.containsKey(type)) {
+    private static String inputStreamToString(InputStream inputStream) {
+        try (Scanner scanner = new Scanner(inputStream).useDelimiter("\\A")) {
+            return scanner.hasNext() ? scanner.next() : "";
+        }
+    }
+
+    private boolean checkType(String type) {
+        if (typeMap.containsKey(type)) {
             return true;
         }
         return false;
     }
-    
-    public boolean checkPokemon(String pokemon) {
-        if(pokemonMap.containsKey(pokemon)) {
+
+    private boolean checkPokemon(String pokemon) {
+        if (pokemonMap.containsKey(pokemon)) {
             return true;
         }
         return false;
     }
-    
-    
+
 }

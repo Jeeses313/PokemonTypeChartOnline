@@ -1,4 +1,4 @@
-package pokemon.type.chart;
+package pokemon.type.chart.domain;
 
 import java.util.HashMap;
 import java.util.Objects;
