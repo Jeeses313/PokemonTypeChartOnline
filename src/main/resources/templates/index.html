@@ -8,97 +8,116 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     </head>
-    <body>
+    <body id='body'>
         <div class="row">
-            <div class="col-7">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Pokemon</th>
-                            <th>of these<br/> types:</th>
-                            <th>Type1</th>
-                            <th>Type2</th>
-                            <th>is affected by<br/> moves as follows:</th>
-                            <th>4x</th>
-                            <th>2x</th>
-                            <th>1x</th>
-                            <th>1/2x</th>
-                            <th>1/4x</th>
-                            <th>0x</th>
-                            <th>
-                                <form action="/" method="get">
-                                    <input type="submit" value="Reset"/>
-                                </form>
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <select id="pokemonList" name="pokemonList" size="10" style="width:150px" onChange="pokemonChange(this)">
-                                    <option th:each="pokemon : ${pokemons}" th:value="${pokemon}" th:text="${pokemon}" th:selected="${pokemon==selectedPokemon}"></option>               
-                                </select>
-                            </td>
-                            <td>
-                                <button id="numberOrderButton" onclick="numberOrder()">1-9</button>
-                                <button id="nameOrderButton" onclick="nameOrder()">A-Z</button>
-                            </td>
-                            <td>
-                                <select id="type1List" size="10" style="width:80px" onChange="type1Change(this)">
-                                    <option th:each="type : ${types}" th:value="${type}" th:text="${type}" th:selected="${type==type1}"></option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="type2List" size="10" style="width:80px" onChange="type2Change(this)">
-                                    <option th:each="type : ${types}" th:value="${type}" th:text="${type}"  th:selected="${type==type2}"></option>
-                                </select>
-                            </td>
-                            <td></td>
-                            <td>
-                                <select id="hyperList" size="10" style="width:80px">
-                                    <option th:each="type : ${hyper}" th:value="${type}" th:text="${type}"></option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="strongList" size="10" style="width:80px">
-                                    <option th:each="type : ${strong}" th:value="${type}" th:text="${type}"></option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="normalList" size="10" style="width:80px">
-                                    <option th:each="type : ${normal}" th:value="${type}" th:text="${type}"></option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="weakList" size="10" style="width:80px">
-                                    <option th:each="type : ${weak}" th:value="${type}" th:text="${type}"></option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="superWeakList" size="10" style="width:80px">
-                                    <option th:each="type : ${superWeak}" th:value="${type}" th:text="${type}"></option>
-                                </select>
-                            </td>
-                            <td>
-                                <select id="ineffectiveList" size="10" style="width:80px">
-                                    <option th:each="type : ${ineffective}" th:value="${type}" th:text="${type}"></option>
-                                </select>
-                            </td>
-                            <td></td>
-                            <td>                      
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="form-control" id="myInput" type="text" placeholder="Search Pokemon..." style="width: 150px" autofocus/>
-                            </td>
-                        </tr>
-                    </tbody> 
-                </table>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-8">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pokemon</th>
+                                    <th></th>
+                                    <th>Type1</th>
+                                    <th>Type2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select id="pokemonList" name="pokemonList" size="10" style="width:150px" onChange="pokemonChange(this)">
+                                            <option th:each="pokemon : ${pokemons}" th:value="${pokemon}" th:text="${pokemon}" th:selected="${pokemon==selectedPokemon}"></option>               
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button id="numberOrderButton" style="width: 50px" onclick="numberOrder()">1-9</button>
+                                        <br/>
+                                        <button id="nameOrderButton" style="width: 50px" onclick="nameOrder()">A-Z</button>
+                                    </td>
+                                    <td>
+                                        <select id="type1List" size="10" style="width:80px" onChange="type1Change(this)">
+                                            <option th:each="type : ${types}" th:value="${type}" th:text="${type}" th:selected="${type==type1}"></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="type2List" size="10" style="width:80px" onChange="type2Change(this)">
+                                            <option th:each="type : ${types}" th:value="${type}" th:text="${type}"  th:selected="${type==type2}"></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input class="form-control" id="myInput" type="text" placeholder="Search Pokemon..." style="width: 150px" autofocus/>
+                                    </td>
+                                    <td>
+                                        <form action="/" method="get">
+                                            <input type="submit" value="Reset"/>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 	
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-8"><b>is affected by moves as follows:</b></div> 
+                </div>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-8">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>4x</th>
+                                    <th>2x</th>
+                                    <th>1x</th>
+                                    <th>1/2x</th>
+                                    <th>1/4x</th>
+                                    <th>0x</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select id="hyperList" size="10" style="width:80px">
+                                            <option th:each="type : ${hyper}" th:value="${type}" th:text="${type}"></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="strongList" size="10" style="width:80px">
+                                            <option th:each="type : ${strong}" th:value="${type}" th:text="${type}"></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="normalList" size="10" style="width:80px">
+                                            <option th:each="type : ${normal}" th:value="${type}" th:text="${type}"></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="weakList" size="10" style="width:80px">
+                                            <option th:each="type : ${weak}" th:value="${type}" th:text="${type}"></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="superWeakList" size="10" style="width:80px">
+                                            <option th:each="type : ${superWeak}" th:value="${type}" th:text="${type}"></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="ineffectiveList" size="10" style="width:80px">
+                                            <option th:each="type : ${ineffective}" th:value="${type}" th:text="${type}"></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="col-5">
-                <img id="image" style="width: 100%; height: 100%" th:src="@{images/None-None.png}" onerror="imageError(this)"/>
+            <div class="col-6">
+                <img id="image" th:src="@{images/None-None.png}" onerror="imageError(this)"/>
             </div>
         </div>
 
@@ -107,6 +126,7 @@
             var type2 = "None";
             var contextRoot = /*[[@{/}]]*/ '';
             var order = 1;
+            
 
             function pokemonChange(select) {
                 var pokemon = select.options[select.options.selectedIndex].value;
@@ -269,6 +289,7 @@
                         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                     });
                 });
+                document.getElementById("body").style = "background-image: url(" + window.contextRoot + "images/Background.png" + ");background-repeat: no-repeat;background-attachment: fixed; background-size: 100% 100%;"
             });
         </script>
     </body>
