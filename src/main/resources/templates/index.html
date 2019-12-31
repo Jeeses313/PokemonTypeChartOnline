@@ -178,10 +178,11 @@
                             }
                         }
                         updateLists();
-                    } else {
-                        document.getElementById("image").style.display = "none";
-                        document.getElementById("errorImage").style.display = "block";
                     }
+                }
+                xmlHttp.onerror = function () {
+                    document.getElementById("image").style.display = "none";
+                    document.getElementById("errorImage").style.display = "block";
                 }
                 xmlHttp.open("GET", window.contextRoot + "rest/" + pokemon, true);
                 xmlHttp.send(null);
@@ -243,11 +244,12 @@
                         document.getElementById("image").src = window.contextRoot + "images/" + window.type1 + "-" + window.type2 + ".png";
                         document.getElementById("image").style.display = "block";
                         document.getElementById("errorImage").style.display = "none";
-                    } else {
-                        document.getElementById("image").style.display = "none";
-                        document.getElementById("errorImage").style.display = "block";
                     }
-                }
+                };
+                xmlHttp.onerror = function () {
+                    document.getElementById("image").style.display = "none";
+                    document.getElementById("errorImage").style.display = "block";
+                };
                 xmlHttp.open("GET", window.contextRoot + "rest/" + window.type1 + "/" + window.type2, true);
                 xmlHttp.send(null);
             }
@@ -263,18 +265,25 @@
                             option.text = pokemon;
                             document.getElementById("pokemonList").add(option);
                         }
+                        if (window.order !== 3) {
+                            window.order = 3;
+                            document.getElementById("numberOrderButton").innerHTML = "1-9";
+                            document.getElementById("nameOrderButton").innerHTML = "A-Z";
+                        } else {
+                            window.order = 4;
+                            document.getElementById("numberOrderButton").innerHTML = "9-1";
+                            document.getElementById("nameOrderButton").innerHTML = "A-Z";
+                        }
                     }
-                }
-                if (window.order != 3) {
-                    window.order = 3;
+                };
+                xmlHttp.onerror = function () {
+                    document.getElementById("image").style.display = "none";
+                    document.getElementById("errorImage").style.display = "block";
+                };
+                if (window.order !== 3) {
                     xmlHttp.open("GET", window.contextRoot + "rest/PokemonNumberOrder", true);
-                    document.getElementById("numberOrderButton").innerHTML = "1-9";
-                    document.getElementById("nameOrderButton").innerHTML = "A-Z";
                 } else {
-                    window.order = 4;
                     xmlHttp.open("GET", window.contextRoot + "rest/PokemonNumberOrderReverse", true);
-                    document.getElementById("numberOrderButton").innerHTML = "9-1";
-                    document.getElementById("nameOrderButton").innerHTML = "A-Z";
                 }
                 xmlHttp.send(null);
             }
@@ -290,24 +299,31 @@
                             option.text = pokemon;
                             document.getElementById("pokemonList").add(option);
                         }
+                        if (window.order !== 1) {
+                            window.order = 1;
+                            document.getElementById("numberOrderButton").innerHTML = "1-9";
+                            document.getElementById("nameOrderButton").innerHTML = "A-Z";
+                        } else {
+                            window.order = 2;
+                            document.getElementById("numberOrderButton").innerHTML = "1-9";
+                            document.getElementById("nameOrderButton").innerHTML = "Z-A";
+                        }
                     }
-                }
-                if (window.order != 1) {
-                    window.order = 1;
+                };
+                xmlHttp.onerror = function () {
+                    document.getElementById("image").style.display = "none";
+                    document.getElementById("errorImage").style.display = "block";
+                };
+                if (window.order !== 1) {
                     xmlHttp.open("GET", window.contextRoot + "rest/PokemonNameOrder", true);
-                    document.getElementById("numberOrderButton").innerHTML = "1-9";
-                    document.getElementById("nameOrderButton").innerHTML = "A-Z";
                 } else {
-                    window.order = 2;
                     xmlHttp.open("GET", window.contextRoot + "rest/PokemonNameOrderReverse", true);
-                    document.getElementById("numberOrderButton").innerHTML = "1-9";
-                    document.getElementById("nameOrderButton").innerHTML = "Z-A";
                 }
                 xmlHttp.send(null);
             }
 
             function imageError(image) {
-                if (image.src != window.contextRoot + "images/Error.png") {
+                if (image.src !== window.contextRoot + "images/Error.png") {
                     image.src = window.contextRoot + "images/Error.png";
                 }
             }
@@ -316,10 +332,24 @@
                 $("#myInput").on("keyup", function () {
                     var value = $(this).val().toLowerCase();
                     $("#pokemonList *").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                     });
                 });
-                document.getElementById("body").style = "background-image: url(" + window.contextRoot + "images/Background.png" + ");background-repeat: no-repeat;background-attachment: fixed; background-size: 100% 100%;"
+                document.getElementById("body").style = "background-image: url(" + window.contextRoot + "images/Background.png" + ");background-repeat: no-repeat;background-attachment: fixed; background-size: 100% 100%;";
+                var sel = document.getElementById('type1List');
+                for (var i = 0, j = sel.options.length; i < j; ++i) {
+                    if (sel.options[i].innerHTML === window.type1) {
+                        sel.selectedIndex = i;
+                        break;
+                    }
+                }
+                sel = document.getElementById('type2List');
+                for (var i = 0, j = sel.options.length; i < j; ++i) {
+                    if (sel.options[i].innerHTML === window.type2) {
+                        sel.selectedIndex = i;
+                        break;
+                    }
+                }
             });
         </script>
     </body>
