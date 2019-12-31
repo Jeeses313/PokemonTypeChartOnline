@@ -7,13 +7,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <style>
+            html, body {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body id='body'>
         <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-8">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
                         <table>
                             <thead>
                                 <tr>
@@ -26,7 +32,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <select id="pokemonList" name="pokemonList" size="10" style="width:150px" onChange="pokemonChange(this)">
+                                        <select id="pokemonList" name="pokemonList" size="10" style="width:150px" onClick="pokemonChange(this)">
                                             <option th:each="pokemon : ${pokemons}" th:value="${pokemon}" th:text="${pokemon}" th:selected="${pokemon==selectedPokemon}"></option>               
                                         </select>
                                     </td>
@@ -61,12 +67,12 @@
                     </div>
                 </div> 	
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-8"><b>is affected by moves as follows:</b></div> 
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8"><b>is affected by moves as follows:</b></div> 
                 </div>
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-8">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
                         <table>
                             <thead>
                                 <tr>
@@ -116,17 +122,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
                 <img id="image" th:src="@{images/None-None.png}" onerror="imageError(this)"/>
+                <img id="errorImage" style="display: none" th:src="@{images/ConnectionError.png}"/>
             </div>
         </div>
-
+        <p style="text-align: center;">See code at github, <a href="https://github.com/Jeeses313/PokemonTypeChartOnline">here</a>.</p>
         <script type="text/javascript" th:inline="javascript">
             var type1 = "None";
             var type2 = "None";
             var contextRoot = /*[[@{/}]]*/ '';
             var order = 1;
-            
 
             function pokemonChange(select) {
                 var pokemon = select.options[select.options.selectedIndex].value;
@@ -134,8 +140,29 @@
                 xmlHttp.onreadystatechange = function () {
                     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
                         var pokemonObject = JSON.parse(xmlHttp.responseText);
-                        window.type1 = pokemonObject.type.key;
-                        window.type2 = pokemonObject.type.value;
+                        var type1Temp = pokemonObject.type.key;
+                        var type2Temp = pokemonObject.type.value;
+                        var rand = Math.random();
+                        if (type2Temp === "None") {
+                            if (rand > 0.6666) {
+                                window.type1 = type1Temp;
+                                window.type2 = type2Temp;
+                            } else if (rand > 0.3333) {
+                                window.type1 = type2Temp;
+                                window.type2 = type1Temp;
+                            } else {
+                                window.type1 = type1Temp;
+                                window.type2 = type1Temp;
+                            }
+                        } else {
+                            if (rand > 0.5) {
+                                window.type1 = type1Temp;
+                                window.type2 = type2Temp;
+                            } else {
+                                window.type1 = type2Temp;
+                                window.type2 = type1Temp;
+                            }
+                        }
                         var sel = document.getElementById('type1List');
                         for (var i = 0, j = sel.options.length; i < j; ++i) {
                             if (sel.options[i].innerHTML === window.type1) {
@@ -151,7 +178,9 @@
                             }
                         }
                         updateLists();
-                        showImage();
+                    } else {
+                        document.getElementById("image").style.display = "none";
+                        document.getElementById("errorImage").style.display = "block";
                     }
                 }
                 xmlHttp.open("GET", window.contextRoot + "rest/" + pokemon, true);
@@ -162,14 +191,12 @@
                 window.type1 = select.options[select.options.selectedIndex].value;
                 document.getElementById("pokemonList").selectedIndex = -1;
                 updateLists();
-                showImage();
             }
 
             function type2Change(select) {
                 window.type2 = select.options[select.options.selectedIndex].value;
                 document.getElementById("pokemonList").selectedIndex = -1;
                 updateLists();
-                showImage();
             }
 
             function updateLists() {
@@ -214,6 +241,11 @@
                             document.getElementById("ineffectiveList").add(option);
                         }
                         document.getElementById("image").src = window.contextRoot + "images/" + window.type1 + "-" + window.type2 + ".png";
+                        document.getElementById("image").style.display = "block";
+                        document.getElementById("errorImage").style.display = "none";
+                    } else {
+                        document.getElementById("image").style.display = "none";
+                        document.getElementById("errorImage").style.display = "block";
                     }
                 }
                 xmlHttp.open("GET", window.contextRoot + "rest/" + window.type1 + "/" + window.type2, true);
@@ -244,7 +276,6 @@
                     document.getElementById("numberOrderButton").innerHTML = "9-1";
                     document.getElementById("nameOrderButton").innerHTML = "A-Z";
                 }
-
                 xmlHttp.send(null);
             }
 
@@ -272,7 +303,6 @@
                     document.getElementById("numberOrderButton").innerHTML = "1-9";
                     document.getElementById("nameOrderButton").innerHTML = "Z-A";
                 }
-
                 xmlHttp.send(null);
             }
 
