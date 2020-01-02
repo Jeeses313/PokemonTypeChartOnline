@@ -1,7 +1,6 @@
 package pokemon.type.chart.dao;
 
 import pokemon.type.chart.domain.Pokemon;
-import pokemon.type.chart.domain.Pair;
 import pokemon.type.chart.domain.Type;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +21,12 @@ public class Database {
     private HashMap<String, ArrayList<ArrayList<String>>> effectivenessMap;
 
     public Database() {
+        initTypes();
+        initPokemons();
+        initAllTypeEffectivenesses();
+    }
+
+    private void initTypes() {
         this.typeList = new ArrayList<>();
         this.typeMap = new HashMap<>();
         try {
@@ -50,6 +55,9 @@ public class Database {
             types.close();
         } catch (Exception e) {
         }
+    }
+
+    private void initPokemons() {
         this.pokemonList = new ArrayList<>();
         this.pokemonMap = new HashMap<>();
         try {
@@ -73,6 +81,9 @@ public class Database {
             pokemons.close();
         } catch (Exception e) {
         }
+    }
+    
+    private void initAllTypeEffectivenesses() {
         effectivenessMap = new HashMap<>();
         for (String type1 : typeList) {
             for (String type2 : typeList) {
@@ -138,14 +149,6 @@ public class Database {
         return typeList;
     }
 
-    public Pair getPokemonTypes(String name) {
-        Pokemon pokemon = pokemonMap.getOrDefault(name, null);
-        if (pokemon == null) {
-            return new Pair("None", "None");
-        }
-        return pokemon.getType();
-    }
-
     public Pokemon getPokemon(String name) {
         return pokemonMap.getOrDefault(name, null);
     }
@@ -180,20 +183,6 @@ public class Database {
         try (Scanner scanner = new Scanner(inputStream).useDelimiter("\\A")) {
             return scanner.hasNext() ? scanner.next() : "";
         }
-    }
-
-    private boolean checkType(String type) {
-        if (typeMap.containsKey(type)) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean checkPokemon(String pokemon) {
-        if (pokemonMap.containsKey(pokemon)) {
-            return true;
-        }
-        return false;
     }
 
 }
